@@ -11,13 +11,13 @@ Ext.define('neverWalkAlone.Application', {
 		elem.parentNode.removeChild(elem)
 
 		var whichView = 'mainview'
-//		var loggedIn = localStorage.getItem("LoggedIn");
-//		if(loggedIn != 'true') { whichView = 'loginview' }
+		var loggedIn = localStorage.getItem("LoggedIn");
+		if (loggedIn != 'true') { whichView = 'loginview' }
 		if (Ext.isClassic == true) {
-			Ext.create({xtype: whichView, plugins: 'viewport'})
+			Ext.create({ xtype: whichView, plugins: 'viewport' })
 		}
 		else {
-			Ext.Viewport.add([{xtype: whichView}])
+			Ext.Viewport.add([{ xtype: whichView }])
 		}
 	},
 

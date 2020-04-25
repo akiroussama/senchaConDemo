@@ -1,4 +1,4 @@
-Ext.define('neverWalkAlone.view.login.LoginView',{
+Ext.define('neverWalkAlone.view.login.LoginView', {
 	extend: 'Ext.Container',
 	xtype: 'loginview',
 	cls: 'loginview',
@@ -6,66 +6,148 @@ Ext.define('neverWalkAlone.view.login.LoginView',{
 	viewModel: {
 		type: 'loginviewmodel'
 	},
-	requires: [
-	//	'Ext.field.Password',
-	//	'Ext.field.Checkbox'
-	],
 	layout: {
 		type: 'vbox',
 		align: 'center',
 		pack: 'center'
 	},
-
 	items: [
 		{
-			cls: 'auth-header',
-			html:
-				'<span class="logo x-fa fa-circle-o-notch"></span>'+
-				'<div class="title">App Name</div>'+
-				'<div class="caption">App Description</div>'
-		}, 
-		{
-			xtype: 'formpanel',
-			reference: 'form',
-			layout: 'vbox',
-			ui: 'auth',
-			items: [
-				// {
-				// 	xtype: 'textfield',
-				// 	allowBlank: false,
-				// 	required: true,
-				// 	label: 'User ID',
-				// 	name: 'user',
-				// 	reference: 'user',
-				// 	placeholder: 'user id'
-				// }, 
-				// {
-				// 	xtype: 'passwordfield',
-				// 	allowBlank: false,
-				// 	required: true,
-				// 	label: 'Password',
-				// 	name: 'pass',
-				// 	reference: 'pass',
-				// 	placeholder: 'password'
-				// }, 
-				// {
-				// 	xtype: 'checkbox',
-				// 	boxLabel: 'Remember me',
-				// 	name: 'remember'
-				// }
-			],
-			buttons: [{
-					text: 'Login',
-					handler: 'onLogin'
+			xtype: 'window',
+			width: 500,
+			height: 450,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			bodyPadding: 10,
+			closable: false,
+			autoShow: true,
+			cls: 'mybackground',
+			defaultFocus: 'txtUserName',
+			items: [{
+				xtype: 'form',
+				style: 'background-image:url(https://www.sencha.com/wp-content/uploads/2019/06/HomePageBackground-v3.png) !important',
+				layout: {
+					type: 'vbox',
+					align: 'middle'
+				},
+
+				reference: 'form',
+				autoEl: {
+					tag: 'form',
+					action: 'login.php',
+					method: 'post'
+				},
+				items: [{
+					xtype: 'image',
+					src: 'https://seeklogo.com/images/S/sencha-logo-A37F092F24-seeklogo.com.jpg',
+					width: 120,
+					height: 60
+				}, {
+					xtype: 'component',
+					html: '<h2 class="loginTitle">Virtual SenchaCon 2020<h2>',
+					width: '55%'
+				}, {
+					xtype: 'label',
+					margin: '15 0 25 0',
+					text: 'Welcome, please sign in below.',
+					style: 'font: normal 19px Arial !important;color:gray'
+				}, {
+					xtype: 'textfield',
+					allowBlank: false,
+
+					width: 220,
+					height: 35,
+					name: 'username',
+					id: 'txtUserName',
+					emptyText: 'Username',
+					'inputAttrTpl': ['autocomplete="on"'],
+					listeners: {
+						afterrender: function () {
+							this.inputEl.set({
+								'autocomplete': 'on'
+							});
+						}
+					}
+				}, {
+					xtype: 'textfield',
+					allowBlank: false,
+
+					margin: '20 0 20 0',
+					width: 220,
+					height: 35,
+					name: 'password',
+					id: 'txtPassword',
+					inputType: 'password',
+					emptyText: 'Password',
+					'inputAttrTpl': ['autocomplete="on"'],
+					listeners: {
+						afterrender: function () {
+							this.inputEl.set({
+								'autocomplete': 'on'
+							});
+						}
+					}
+				}, {
+					xtype: 'container',
+					margin: '0 0 25 0',
+					layout: {
+						type: 'hbox',
+						align: 'middle'
+					},
+					items: [{
+
+						name: 'rememberme',
+						xtype: 'checkbox',
+						boxLabel: 'Remember Me'
+					}, {
+						xtype: 'tbspacer',
+						width: 20
+					}, {
+						xtype: 'displayfield',
+						value: 'Forgot password',
+						style: 'text-decoration: underline;',
+						fieldStyle: 'color: #551A8B;'
+					}
+
+					]
+				}, {
+					xtype: 'displayfield',
+					reference: 'message',
+					hidden: true,
+					fieldStyle: 'color: red;',
+					value: 'Username and/or Password invalid'
+				}, {
+					xtype: 'component',
+					html: '<iframe id="submitTarget" name="submitTarget" style="display:none"></iframe>'
+				}, {
+					xtype: 'component',
+					html: '<input type="submit" id="submitButton" style="display:none">'
+				}, {
+					xtype: 'button',
+					itemId: 'loginButton',
+					text: 'LOGIN',
+					height: 40,
+					width: 120,
+					reference: 'loginButton',
+					ui: 'default',
+					listeners: {
+						afterrender: function () {
+							this.el.createChild({
+								tag: 'input',
+								type: 'submit',
+								value: 'LOG IN',
+								style: 'width: 100px; height: 35px; position: relative; top: -31px; left: -4px; opacity: 0;'
+							});
+						}
+					}
+				}]
 			}]
-		}, 
+		},
 		{
 			cls: 'auth-footer',
 			html:
-				'<div>Ext JS example</div>'+
-				'<a href="http://www.sencha.com" target="_blank">'+
-						'<span class="logo ext ext-sencha"></span>'+
-						'<span class="label">Sencha</span>'+
+				'<div>Testing your Ext JS Application - SenchaCon 2020</div>' +
 				'</a>'
 		}
 	]
