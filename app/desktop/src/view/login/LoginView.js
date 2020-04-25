@@ -15,7 +15,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 		{
 			xtype: 'window',
 			width: 500,
-			height: 450,
+			height: 550,
 			modal: true,
 			resizable: false,
 			draggable: false,
@@ -26,7 +26,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 			defaultFocus: 'txtUserName',
 			items: [{
 				xtype: 'form',
-				style: 'background-image:url(https://www.sencha.com/wp-content/uploads/2019/06/HomePageBackground-v3.png) !important',
+				id: 'loginForm',
 				layout: {
 					type: 'vbox',
 					align: 'middle'
@@ -59,7 +59,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					width: 220,
 					height: 35,
 					name: 'username',
-					id: 'txtUserName',
+					itemId: 'username',
 					emptyText: 'Username',
 					'inputAttrTpl': ['autocomplete="on"'],
 					listeners: {
@@ -77,7 +77,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					width: 220,
 					height: 35,
 					name: 'password',
-					id: 'txtPassword',
+					itemId: 'password',
 					inputType: 'password',
 					emptyText: 'Password',
 					'inputAttrTpl': ['autocomplete="on"'],
@@ -131,6 +131,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					width: 120,
 					reference: 'loginButton',
 					ui: 'default',
+					handler: 'onLogin',
 					listeners: {
 						afterrender: function () {
 							this.el.createChild({
@@ -143,12 +144,6 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					}
 				}]
 			}]
-		},
-		{
-			cls: 'auth-footer',
-			html:
-				'<div>Testing your Ext JS Application - SenchaCon 2020</div>' +
-				'</a>'
 		}
 	]
 

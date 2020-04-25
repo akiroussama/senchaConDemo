@@ -25,6 +25,13 @@ Ext.define('neverWalkAlone.view.main.header.HeaderView', {
     { name: 'bolt', iconCls: 'x-fa fa-bolt', tooltip: 'bolt' },
     { name: 'search', iconCls: 'x-fa fa-search', tooltip: 'search' },
     {
+      name: 'search', iconCls: 'fas fa-power-off', tooltip: 'search',
+      handler: function () {
+        localStorage.setItem('LoggedIn', false);
+        location.reload();
+      }
+    },
+    {
       reference: 'detailtoggle',
       iconCls: 'x-fa fa-arrow-left',
       tooltip: 'show and hide detail view',

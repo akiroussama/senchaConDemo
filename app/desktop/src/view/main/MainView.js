@@ -6,6 +6,7 @@ Ext.define('neverWalkAlone.view.main.MainView', {
     type: 'mainviewmodel'
   },
   layout: 'border',
+  id: 'mainview',
   items: [
     {
       xtype: "navview",
