@@ -18,7 +18,7 @@ Ext.define('neverWalkAlone.Application', {
 			Ext.create({ xtype: whichView, plugins: 'viewport' })
 		}
 		else {
-			Ext.Viewport.add([{ xtype: whichView }])
+			Ext.Viewport.add([{ xtype: whichView, plugins: 'viewport' }])
 		}
 	},
 
