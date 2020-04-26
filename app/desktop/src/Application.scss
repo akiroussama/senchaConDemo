@@ -6,3 +6,21 @@
 	$glyph-color: white,
   $border-color: transparent
 );
+:root {
+  --dark-mode: false;
+  --base-color: #03354b;
+  --base-highlight-color: #03354b;
+  --base-light-color: #bbdefb;
+  --base-dark-color: #03354b;
+  --base-pressed-color: #03354b;
+  --base-focused-color: #03354b;
+}
+.x-treelist-nav {
+  background-color:  #03354b !important; 
+}
+.x-treelist-nav .x-treelist-item-selected > .x-treelist-row {
+  background-color: olivedrab !important; 
+}
+.x-treelist-nav .x-treelist-item-selected > .x-treelist-row:before {
+  background-color: darkgoldenrod !important; 
+}

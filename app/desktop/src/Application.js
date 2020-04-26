@@ -1,7 +1,8 @@
 Ext.define('neverWalkAlone.Application', {
 	extend: 'Ext.app.Application',
 	name: 'neverWalkAlone',
-	requires: ['neverWalkAlone.*'],
+	requires: ['neverWalkAlone.*',
+		'neverWalkAlone.util.Component'],
 	defaultToken: 'homeview',
 
 	launch: function () {

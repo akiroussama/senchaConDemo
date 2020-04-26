@@ -25,7 +25,8 @@
     "dev": "webpack-dev-server --env.profile=desktop --env.browser=yes --env.verbose=no",
     "build": "npm run clean && cross-env webpack --env.profile=desktop --env.environment=production --env.treeshake=yes",
     "cypress:open": "cypress open",
-    "cy": "cypress open"
+    "cy": "cypress open",
+    "cr": "cypress run --browser chrome"
   },
   "dependencies": {
     "@sencha/ext-classic": "~7.2.0",

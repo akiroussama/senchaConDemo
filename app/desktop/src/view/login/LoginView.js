@@ -59,9 +59,8 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					width: 220,
 					height: 35,
 					name: 'username',
-					itemId: 'username',
 					emptyText: 'Username',
-					'inputAttrTpl': ['autocomplete="on"'],
+					inputAttrTpl: 'data-cy=username',
 					listeners: {
 						afterrender: function () {
 							this.inputEl.set({
@@ -72,7 +71,6 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 				}, {
 					xtype: 'textfield',
 					allowBlank: false,
-
 					margin: '20 0 20 0',
 					width: 220,
 					height: 35,
@@ -80,7 +78,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					itemId: 'password',
 					inputType: 'password',
 					emptyText: 'Password',
-					'inputAttrTpl': ['autocomplete="on"'],
+					inputAttrTpl: 'data-cy=password',
 					listeners: {
 						afterrender: function () {
 							this.inputEl.set({
@@ -129,6 +127,7 @@ Ext.define('neverWalkAlone.view.login.LoginView', {
 					text: 'LOGIN',
 					height: 40,
 					width: 120,
+					cyId: 'loginBtn',
 					reference: 'loginButton',
 					ui: 'default',
 					handler: 'onLogin',
